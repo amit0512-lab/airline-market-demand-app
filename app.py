@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request
 import requests
 import pandas as pd
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
 
 app = Flask(__name__)
 
