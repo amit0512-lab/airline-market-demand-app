@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Top Routes</h1>
+        <canvas id="routesChart"></canvas>
+
+        <h1>Top Airlines</h1>
+        <canvas id="airlinesChart"></canvas>
+
+        <script>
+            const routesLabels = {{ routes.keys() | list | safe }};
+            const routesData = {{ routes.values() | list | safe }};
+
+            const airlinesLabels = {{ airlines.keys() | list | safe }};
+            const airlinesData = {{ airlines.values() | list | safe }};
+
+            new Chart(document.getElementById('routesChart'), {
+                type: 'bar',
+                data: {
+                    labels: routesLabels,
+                    datasets: [{
+                        label: 'Top Routes',
+                        data: routesData,
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                    }]
+                }
+            });
+
+            new Chart(document.getElementById('airlinesChart'), {
+                type: 'bar',
+                data: {
+                    labels: airlinesLabels,
+                    datasets: [{
+                        label: 'Top Airlines',
+                        data: airlinesData,
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)'
+                    }]
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Airline Market Demand</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Airline Market Demand Tool</h1>
+        <form action="/results" method="post">
+            <label for="dep_iata">Departure Airport IATA Code:</label>
+            <input type="text" name="dep_iata" placeholder="e.g., SYD" required>
+            <button type="submit">Get Data</button>
+        </form>
+    </div>
+</body>
+</html>
